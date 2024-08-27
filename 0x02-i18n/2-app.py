@@ -7,10 +7,13 @@ from flask_babel import Babel
 
 """ istantiate babel
 """
+
+
 class Config:
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -23,6 +26,7 @@ def get_local():
     """ retrieves the locale for a web page
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
 
 @app.route('/')
 def index():
