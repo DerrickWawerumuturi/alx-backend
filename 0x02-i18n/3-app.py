@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""A Basic Flask app.
+"""A Basic Flask app with internationalization support.
 """
 from flask_babel import Babel
 from flask import Flask, render_template, request
@@ -28,14 +28,9 @@ def get_locale() -> str:
 
 @app.route('/')
 def get_index() -> str:
-    """The home page.
+    """The home/index page.
     """
     return render_template('3-index.html')
-
-
-""" make get_locale available in jinja templates
-"""
-app.jinja_env.globals['get_locale'] = get_locale
 
 
 if __name__ == '__main__':
